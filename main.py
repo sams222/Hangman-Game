@@ -46,7 +46,7 @@ def printScreen():
     print("\n")
 
 
-# you can get these by looking up hangman ascii
+# hangman ascii art
 hangmen = ['''
     +---+
         |
@@ -105,7 +105,7 @@ hangmen = ['''
         |
   =========''']
 
-# you can get these by looking up ASCII generator
+# game title and you win/you lose
 title = """\
   
   
@@ -149,9 +149,7 @@ def findIndex(word, guess):
 
 while True:
 
-    # Uses request module to grab the list of 10000 words from the site and turns it into one giant array/list If you
-    # want to use this, you must also use the findIndex() function we made on line 126 because a lot of the words
-    # have the same letter more than once and using .index() or .find() will not work.
+    # Uses request module to grab the list of 10000 words from the site and turns it into one giant array/list 
     word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
     response = requests.get(word_site)
     words = response.content.decode('utf-8').splitlines()
@@ -163,7 +161,7 @@ while True:
 
         # picks a random word from the list of words
         word = words[random.randint(0, len(words))]
-        # if the word chosen doesn't pass all the following checks it will be rerolled
+        # if the word chosen doesn't pass all the following checks, it will be rerolled
 
         # checks to see if PyDicitionary has a definition of the word for the hint
         try:
@@ -171,7 +169,7 @@ while True:
             keys = list(dict.keys())
         except:
             pass
-        # make sure the word has at least 4 characters, there are a lot of words that have 3
+        # make sure the word has at least 4 characters. There are a lot of words that have 3
         if len(word) < 4:
             pass
         else:
