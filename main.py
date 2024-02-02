@@ -1,3 +1,6 @@
+# A robust Python hangman game with ASCII graphics, and hints by Sam
+# Created Spring of 2023
+
 import requests
 import random
 import os
@@ -6,13 +9,16 @@ from PyDictionary import PyDictionary
 
 
 # functions for printing out things in color
-def prRed(skk): print("\033[1;31m{}\033[00m".format(skk))
+def red(text): 
+    print("\033[1;31m{}\033[00m".format(text))
 
 
-def prYellow(skk): print("\033[93m{}\033[00m".format(skk))
+def yellow(text): 
+    print("\033[93m{}\033[00m".format(text))
 
 
-def prGreen(skk): print("\033[1;32m{}\033[00m".format(skk))
+def green(text): 
+    print("\033[1;32m{}\033[00m".format(text))
 
 
 platform = platform.system()
@@ -195,9 +201,9 @@ while True:
             os.system(command)
         else:
             os.system(command)
-        prYellow(title)
+        yellow(title)
         if invalidCount == 1:
-            prRed("Input invalid: Only accepts letters and letters you have not entered yet")
+            red("Input invalid: Only accepts letters and letters you have not entered yet")
             invalidCount = 0
 
         printScreen()
@@ -237,7 +243,7 @@ while True:
         # enter game over screen if the player loses
     if guessesLeft == 0:
         os.system(command)
-        prRed(gameOver)
+        red(gameOver)
         print("The word was:", word)
         userContinue = input("Play Again? (Yes/No):").lower
         if userContinue == "yes":
@@ -249,7 +255,7 @@ while True:
     # enter you won screen if the player wins
     else:
         os.system(command)
-        prGreen(youWon)
+        green(youWon)
         print("The word was:", word)
         userContinue = input("Play Again? (Yes/No):").lower
 
