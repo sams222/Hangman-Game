@@ -37,7 +37,7 @@ def printScreen():
         dict = dictionary.meaning(word)
         keys = list(dict.keys())
         hint = "Hint: " + dict[keys[0]][0]
-        prGreen(hint)
+        green(hint)
     print("\n")
     print(' '.join(displayCurrent))  # gets rid of brackets, parenthesis, and commas when printing
     print("\n")
